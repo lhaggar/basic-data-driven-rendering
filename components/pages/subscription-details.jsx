@@ -14,27 +14,23 @@ export const subscriptionDetailsPageContext = {
       items: [
         {
           label: 'Subscription Type',
-          value: 'Standard Daily',
+          path: 'subType',
           href: 'http://example.com/',
         },
         {
           label: 'Price',
-          value: '£19.99 - Billed Monthly',
+          path: 'price',
         },
         {
           label: 'Customer Number',
-          value: '1234567890',
+          path: 'customerNumber',
           note:
             'Your customer number is your unique identifier and may be asked when contacting us.',
         },
         {
           label: `What's Included?`,
           type: 'unordered-list',
-          value: [
-            'Daily delivery',
-            'A different thing each day',
-            'A free pint on your birthday',
-          ],
+          path: 'services',
           href: 'http://example.com/',
         },
       ],
@@ -46,12 +42,12 @@ export const subscriptionDetailsPageContext = {
         {
           label: 'Card Number',
           type: 'card-number',
-          value: '**** **** **** 1234',
+          path: 'billing.cardNumber',
           href: 'http://example.com/',
         },
         {
           label: 'Shipping Address',
-          value: '1 Example Road, Placeholderville, Fake County AA12 3AA',
+          path: 'billing.shippingAddress',
           href: 'http://example.com/',
         },
       ],
@@ -59,8 +55,13 @@ export const subscriptionDetailsPageContext = {
   ],
 };
 
-export const SubscriptionDetailsPage = ({ context }) => (
-  <Layout context={context || subscriptionDetailsPageContext}>
+export const SubscriptionDetailsPage = ({ context, subscription }) => {
+  const c = {
+    ...context || subscriptionDetailsPageContext,
+    data: subscription
+  }
+  return (
+  <Layout context={c}>
     <PageRenderer />
   </Layout>
-);
+)};

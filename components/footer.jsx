@@ -22,14 +22,15 @@ export const Footer = () => {
         stackDistribution='flex-start'
         spaceInline='space040'
       >
-        {footer.map(({ type, ...props }) =>
+        {footer.map(({ type, ...props }, i) =>
           type === 'cookie-settings' ? (
             <ConsentSettingsLink
+              key={i}
               overrides={{ typographyPreset, stylePreset }}
               {...props}
             />
           ) : (
-            <Link overrides={{ typographyPreset, stylePreset }} {...props} />
+            <Link key={i} overrides={{ typographyPreset, stylePreset }} {...props} />
           )
         )}
       </Stack>

@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
     "newskit": "^3.0.0",
     "next": "10.1.3",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const PageContext = React.createContext({});
 
@@ -11,41 +11,42 @@ export const PageContextConsumer = PageContext.Consumer;
 export const usePageContext = () => React.useContext(PageContext);
 
 export const baseContext = {
+  data: {},
   nav: [
-    { href: '/customer-details', children: 'Customer Details' },
-    { href: '/subscription-details', children: 'Subscription Details' },
+    { href: "/customer-details", children: "Customer Details" },
+    { href: "/subscription-details", children: "Subscription Details" },
   ],
   navOverrides: {
-    spaceInset: 'spaceInset030',
+    spaceInset: "spaceInset030",
   },
   header: {
-    title: '',
+    title: "",
     titleOverrides: {
-      spaceStack: 'space040',
-      typographyPreset: 'utilityHeading060',
+      spaceStack: "space040",
+      typographyPreset: "utilityHeading060",
     },
-    description: '',
+    description: "",
     descriptionOverrides: {
-      typographyPreset: 'utilityBody020',
+      typographyPreset: "utilityBody020",
     },
   },
   sections: [],
   sectionsOverrides: {
-    spaceInset: 'spaceInset030',
+    spaceInset: "spaceInset030",
     list: {
-      spaceStack: 'space060',
-      typographyPreset: 'utilityHeading040',
+      spaceStack: "space060",
+      typographyPreset: "utilityHeading040",
     },
   },
   footer: [
-    { href: '/about-us', children: 'About Us' },
-    { href: '/privacy', children: 'Privacy' },
-    { href: '/help', children: 'Help' },
-    { type: 'cookie-settings', children: 'Cookie Settings' },
-    { href: '/contact-us', children: 'Contact Us' },
+    { href: "/about-us", children: "About Us" },
+    { href: "/privacy", children: "Privacy" },
+    { href: "/help", children: "Help" },
+    { type: "cookie-settings", children: "Cookie Settings" },
+    { href: "/contact-us", children: "Contact Us" },
   ],
   footerOverrides: {
-    typographyPreset: 'utilityBody020',
-    stylePreset: 'linkStandalone',
+    typographyPreset: "utilityBody020",
+    stylePreset: "linkStandalone",
   },
 };

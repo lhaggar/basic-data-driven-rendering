@@ -12,10 +12,11 @@ export const customerDetailsPageContext = {
       type: 'list',
       title: 'Profile',
       items: [
-        { label: 'Name', value: 'Jane Smith', href: 'http://example.com/' },
+        { label: 'First Name', path: 'firstName', href: 'http://example.com/' },
+        { label: 'Last Name', path: 'lastName', href: 'http://example.com/' },
         {
           label: 'Date of Birth',
-          value: '01/01/1970',
+          path: 'customData.dateOfBirth',
         },
       ],
     },
@@ -25,12 +26,12 @@ export const customerDetailsPageContext = {
       items: [
         {
           label: 'Email',
-          value: 'jane.smith@example.com',
+          path: 'email',
           href: 'http://example.com/',
         },
         {
           label: 'Password',
-          value: '************',
+          path: 'password',
           href: 'http://example.com/',
         },
       ],
@@ -41,12 +42,12 @@ export const customerDetailsPageContext = {
       items: [
         {
           label: 'Mobile',
-          value: '07123 987 654',
+          path: 'phone.mobile',
           href: 'http://example.com/',
         },
         {
           label: 'Address',
-          value: '1 Example Road, Placeholderville, Fake County AA12 3AA',
+          path: 'address',
           href: 'http://example.com/',
         },
       ],
@@ -54,8 +55,14 @@ export const customerDetailsPageContext = {
   ],
 };
 
-export const CustomerDetailsPage = ({ context }) => (
-  <Layout context={context || customerDetailsPageContext}>
+export const CustomerDetailsPage = ({ context, user }) => {
+  const c = {
+    ...context || customerDetailsPageContext,
+    data: user,
+  }
+  // console.log('🔥', c.data)
+  return (
+  <Layout context={c}>
     <PageRenderer />
   </Layout>
-);
+)};
