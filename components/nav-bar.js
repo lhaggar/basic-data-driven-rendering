@@ -1,5 +1,5 @@
-import { Block, UnorderedList, Link } from 'newskit';
-import { usePageContext } from './context';
+import { Block, UnorderedList, Link } from "newskit";
+import { usePageContext } from "./context";
 
 export const NavBar = () => {
   const {
@@ -9,8 +9,8 @@ export const NavBar = () => {
   return (
     <Block spaceInset={spaceInset}>
       <UnorderedList>
-        {nav.map(props => (
-          <Link {...props} />
+        {nav.map((props, i) => (
+          <Link key={i} {...props} />
         ))}
       </UnorderedList>
     </Block>
